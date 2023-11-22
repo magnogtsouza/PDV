@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NTPreVenda.Login"
+             Title="Login">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Frame HeightRequest="200" WidthRequest="200" Margin="50" BackgroundColor="Red">
+            <Label Text="QR STRING CONNECTION"/>
+        </Frame>
+
+        <Label Grid.Row="1" Text="Insira usuario e senha" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <FlexLayout Grid.Row="2" Margin="75" Direction="Column" AlignItems="Center">
+            <Entry Placeholder="Usuario" MinimumWidthRequest="200" HorizontalOptions="Center"  />
+            <Entry Placeholder="senha" MinimumWidthRequest="200" HorizontalOptions="Center" IsPassword="True"  />
+            <Picker Title="Selecione o vendedor"  MinimumWidthRequest="200">
+                <Picker.Items>
+                    <x:String>Magno</x:String>
+                    <x:String>Jessica</x:String>
+                    <x:String>James</x:String>
+                    <x:String>Junior</x:String>
+                    <x:String>Roberta</x:String>
+                </Picker.Items>
+            </Picker>
+        </FlexLayout>
+        
+        <FlexLayout Grid.Row="3"  Direction="Column" AlignItems="Center">
+            <HorizontalStackLayout>
+                <Label Text="Salvar dados" VerticalOptions="Center"/>
+                <Switch IsToggled="True"/> 
+            </HorizontalStackLayout>         
+            <Button Text="Login"/>
+        </FlexLayout>
+
+
+
+    </Grid>
+</ContentPage>
