@@ -6,4 +6,9 @@ public partial class Login : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void Login_Clicked(object sender, EventArgs e)
+    {
+		Shell.Current.GoToAsync("//MainPage");
+    }
 }

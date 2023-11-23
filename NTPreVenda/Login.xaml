@@ -38,7 +38,7 @@
                 <Label Text="Salvar dados" VerticalOptions="Center"/>
                 <Switch IsToggled="True"/> 
             </HorizontalStackLayout>         
-            <Button Text="Login"/>
+            <Button Text="Login" Clicked="Login_Clicked"/>
         </FlexLayout>
 
 
