@@ -6,15 +6,23 @@
     xmlns:local="clr-namespace:NTPreVenda"
     Shell.FlyoutBehavior="Disabled"
     Title="NTPreVenda">
-    
-    <ShellContent
-       Title="Login"
-       ContentTemplate="{DataTemplate local:Login}"
-       Route="Login" />
+
     <ShellContent
         Title="Vendas"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <ShellContent
+       Title="Ativação"
+       ContentTemplate="{DataTemplate local:Activation}"
+       Route="Activation" />
+
+    <ShellContent
+       Title="Login"
+       ContentTemplate="{DataTemplate local:Login}"
+       Route="Login" />
+    
+
 
 
 </Shell>

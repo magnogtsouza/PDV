@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTPreVenda", "NTPreVenda\NTPreVenda.csproj", "{2C874DF8-5A5F-4937-934A-74FFD0D71FCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Painel", "Painel\Painel.csproj", "{B7D1D266-DAD9-475A-A700-BD4AF797C95B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{2C874DF8-5A5F-4937-934A-74FFD0D71FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C874DF8-5A5F-4937-934A-74FFD0D71FCC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2C874DF8-5A5F-4937-934A-74FFD0D71FCC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B7D1D266-DAD9-475A-A700-BD4AF797C95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D1D266-DAD9-475A-A700-BD4AF797C95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D1D266-DAD9-475A-A700-BD4AF797C95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D1D266-DAD9-475A-A700-BD4AF797C95B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
