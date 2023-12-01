@@ -52,6 +52,11 @@ namespace NTPreVenda.db.Models
 
         public string DAI_VENDEDOR { get; set; }
 
+        public override Task<object> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool Insert()
         {
             throw new NotImplementedException();

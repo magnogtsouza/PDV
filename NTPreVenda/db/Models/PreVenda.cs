@@ -64,6 +64,16 @@ namespace NTPreVenda.db.Models
 
         public short DAV_PARCELAS { get; set; }
 
+        public virtual string NomeVendedor { get; set; }
+
+        public override async Task<object> GetList()
+        {
+            string exp = await ToListExpando(25);
+            List<PreVenda> list = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PreVenda>>(exp);
+            return list;
+        }
+
+
         //public virtual ICollection<DAV_ITENS> DAV_ITENS { get; set; }
 
         //public virtual ICollection<DAVBONUS> DAVBONUS { get; set; }

@@ -36,16 +36,17 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
-                                <Label Text="{Binding Id}"/>                                
+                                <Label Text="{Binding DAV_DOC}"/>                                
                                 <HorizontalStackLayout Grid.Column="1">
+                                    <Label Text="|"/>
                                     <Label Text="{Binding Vendedor}"/>
                                     <Label Text="-"/>
-                                    <Label Text="{Binding Cliente}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding DAV_NOME}" FontAttributes="Bold"/>
                                 </HorizontalStackLayout>
                                 <Button Text="Mostrar" Grid.Column="2" Grid.RowSpan="2"/>
                                 <HorizontalStackLayout Grid.Column="1" Grid.Row="1">
                                     <Label Text="R$"/>
-                                    <Label Text="{Binding Valor}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding DAV_VALOR}" FontAttributes="Bold"/>
                                 </HorizontalStackLayout>
                             </Grid>
                         </ViewCell>

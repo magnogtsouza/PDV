@@ -1,4 +1,6 @@
 ﻿using LocalData;
+using Microsoft.Data.SqlClient;
+using NTPreVenda.db.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,10 @@ namespace NTPreVenda
         public static string localCachePath = System.IO.Path.Combine(FileSystem.Current.CacheDirectory, "cache.bin");
         public static LocalData.DataFile Data = Data ?? new DataFile(localCachePath, "202311232354mágnõç", "nacaoCript");
         private static Models.DeviceInfo _DeviceInfo;
-        public static void RefreshInfo() { _DeviceInfo = Models.DeviceInfo.GetDeviceInfo(); }
+        public static void RefreshInfo() 
+        { 
+            _DeviceInfo = Models.DeviceInfo.GetDeviceInfo(); 
+        }
         public static Models.DeviceInfo DeviceInfo
         {
             get
@@ -25,5 +30,9 @@ namespace NTPreVenda
             }
         }
 
+
+
+
+        public static Vendedor[] Vendedores { get;set; }
     }
 }
