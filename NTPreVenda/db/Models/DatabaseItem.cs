@@ -83,7 +83,11 @@ namespace NTPreVenda.db.Models
                 }
             }
 
-            if (string.IsNullOrEmpty(PrimaryKey))
+            if (Fields.Any(x => x.Equals(Table + "_DATA")))
+            {
+                sb.Append($" order by {Fields.Where(x => x.Equals(Table + "_DATA")).First()} desc ");
+            }
+            else if (string.IsNullOrEmpty(PrimaryKey))
             {
                 sb.Append($" order by {PrimaryKey} desc ");
             }

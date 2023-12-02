@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Globalization;
 namespace NTPreVenda.db.Models
 {
     internal class PreVenda : DatabaseItem
@@ -65,7 +65,8 @@ namespace NTPreVenda.db.Models
         public short DAV_PARCELAS { get; set; }
 
         public virtual string NomeVendedor { get; set; }
-
+        //public string ValorView { get { return DAV_VALOR.ToString("C", VarGlobais.culturaBrasileira); ; } }
+        public string Vendedor { get { return NomeVendedor; } }
         public override async Task<object> GetList()
         {
             string exp = await ToListExpando(25);

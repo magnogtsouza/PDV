@@ -8,6 +8,11 @@
     Title="NTPreVenda">
 
     <ShellContent
+        Title="Loading"
+        ContentTemplate="{DataTemplate local:LoadCache}"
+        Route="LoadCache" />
+
+    <ShellContent
         Title="Vendas"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />

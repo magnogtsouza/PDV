@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Globalization;
 namespace NTPreVenda
 {
     class VarGlobais
@@ -31,7 +31,7 @@ namespace NTPreVenda
         }
 
 
-
+       public static CultureInfo culturaBrasileira = new CultureInfo("pt-BR");
 
         public static Vendedor[] Vendedores { get;set; }
     }

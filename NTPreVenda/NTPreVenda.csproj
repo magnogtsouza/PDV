@@ -58,11 +58,17 @@
 
 	<ItemGroup>
 	  <AndroidResource Remove="ExDll\**" />
+	  <AndroidResource Remove="Models\PDVNet\**" />
 	  <Compile Remove="ExDll\**" />
+	  <Compile Remove="Models\PDVNet\**" />
 	  <EmbeddedResource Remove="ExDll\**" />
+	  <EmbeddedResource Remove="Models\PDVNet\**" />
 	  <MauiCss Remove="ExDll\**" />
+	  <MauiCss Remove="Models\PDVNet\**" />
 	  <MauiXaml Remove="ExDll\**" />
+	  <MauiXaml Remove="Models\PDVNet\**" />
 	  <None Remove="ExDll\**" />
+	  <None Remove="Models\PDVNet\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -86,13 +92,12 @@
 	  <MauiXaml Update="Activation.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="LoadCache.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\PDVNet\" />
 	</ItemGroup>
 
 </Project>

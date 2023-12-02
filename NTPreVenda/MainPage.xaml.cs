@@ -28,23 +28,20 @@ namespace NTPreVenda
         private async void GetVendas()
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            if (VarGlobais.Vendedores == null || VarGlobais.Vendedores.Length == 0)
-            {
-                List<Vendedor> vendedors = await new Vendedor().GetList() as List<Vendedor>;
-                VarGlobais.Vendedores = vendedors.ToArray();
-            } 
             List<PreVenda> preVendas = await new PreVenda().GetList() as List<PreVenda>;
 
             for (int i = 0; i < preVendas.Count(); i++)
             {
                 Vendedor locVendedor = VarGlobais.Vendedores.Where(x => x.VEN_CODIGO.Equals(preVendas[i].DAV_VENDEDOR)).FirstOrDefault();
-                preVendas[i].NomeVendedor = locVendedor == null? preVendas[i].DAV_VENDEDOR: locVendedor.VEN_NOME; 
+                preVendas[i].NomeVendedor = locVendedor == null? preVendas[i].DAV_VENDEDOR: locVendedor.VEN_NOME.Trim(); 
             }
 
             stopwatch.Stop();
             lwVendas.ItemsSource = preVendas;
             return;
-
+            /*
+            SELECT count(*) FROM [BDLJNTEXTILNCLASS].[dbo].[REFERENCIAS]
+             */
         }
 
     }

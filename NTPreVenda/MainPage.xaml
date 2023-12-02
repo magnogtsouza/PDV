@@ -22,8 +22,8 @@
             <ImageButton Grid.Column="3" Source="plus.svg" BackgroundColor="Purple" CornerRadius="5" />
         </Grid>
         <ScrollView Grid.Row="1">
-            <ListView x:Name="lwVendas">                
-                <ListView.ItemTemplate>                    
+            <ListView x:Name="lwVendas">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
@@ -36,18 +36,11 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
-                                <Label Text="{Binding DAV_DOC}"/>                                
-                                <HorizontalStackLayout Grid.Column="1">
-                                    <Label Text="|"/>
-                                    <Label Text="{Binding Vendedor}"/>
-                                    <Label Text="-"/>
-                                    <Label Text="{Binding DAV_NOME}" FontAttributes="Bold"/>
-                                </HorizontalStackLayout>
+                                <Label Text="{Binding DAV_DOC}"/>
+                                <Label Text="{Binding DAV_NOME}" Grid.Column="1" FontAttributes="Bold"/>
+                                <Label Text="{Binding NomeVendedor}" Grid.Column="1" Grid.Row="1"/>                            
                                 <Button Text="Mostrar" Grid.Column="2" Grid.RowSpan="2"/>
-                                <HorizontalStackLayout Grid.Column="1" Grid.Row="1">
-                                    <Label Text="R$"/>
-                                    <Label Text="{Binding DAV_VALOR}" FontAttributes="Bold"/>
-                                </HorizontalStackLayout>
+                                <Label Text="{Binding DAV_VALOR, StringFormat='{0:C}'}" FontAttributes="Bold"  Grid.Column="0" Grid.Row="1"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
