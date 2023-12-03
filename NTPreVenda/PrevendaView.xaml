@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NTPreVenda.PrevendaView"
+             Title="PrevendaView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid BackgroundColor="LimeGreen">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="lblVendedor"/>
+            <Entry Placeholder="Nome do cliente" x:Name="entryClientName" Grid.Row="1"/>
+            <Entry Placeholder="Observações" x:Name="EntryObservacaoNota" Grid.Row="2"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <ListView x:Name="lwItens" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding NOME}"/>
+                                <Label Text="{Binding DAI_QUANTIDADE}" Grid.Column="1" FontAttributes="Bold"/>
+                                <Label Text="{Binding DAI_VALOR, StringFormat='{0:C}'}" FontAttributes="Bold"  Grid.Column="2"/>
+                                <Label Text="{Binding DAI_VALOR_TOTAL, StringFormat='{0:C}'}" FontAttributes="Bold"  Grid.Column="3"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+
+        <Grid Grid.Row="2" BackgroundColor="LimeGreen">
+            <StackLayout>
+                <Label Text="prece" x:Name="lblTotal"/>
+            </StackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

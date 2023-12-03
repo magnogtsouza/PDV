@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NTPreVenda.db.Models
 {
-    internal class ItemPrevenda : DatabaseItem
+    public class ItemPrevenda : DatabaseItem
     {
         public ItemPrevenda() : base("DAV_ITENS")
         {
@@ -52,9 +52,25 @@ namespace NTPreVenda.db.Models
 
         public string DAI_VENDEDOR { get; set; }
 
-        public override Task<object> GetList()
+        public string NOME
         {
-            throw new NotImplementedException();
+            get
+            {
+                if (Referencia == null)
+                {
+                    return "Desconhecido";
+                }
+                return Referencia.REF_DESCRICAO;
+            }
+        }
+
+        public virtual Referencia Referencia { get; set; }
+
+        public override async Task<object> GetList(uint limint = 1000, IDictionary<string, string> where = null)
+        {
+            string exp = await ToListExpando(limint, where);
+            List<ItemPrevenda> list = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ItemPrevenda>>(exp);
+            return list;
         }
 
         public override bool Insert()

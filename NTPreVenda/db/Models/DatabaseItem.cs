@@ -79,7 +79,7 @@ namespace NTPreVenda.db.Models
                     {
                         NotFirt = true;
                     }
-                    sb.Append($" {condicao.Key} LIKE {condicao.Value} ");
+                    sb.Append($" {condicao.Key} LIKE '{condicao.Value}' ");
                 }
             }
 
@@ -124,7 +124,7 @@ namespace NTPreVenda.db.Models
         }
 
 
-        public abstract Task<object> GetList();
+        public abstract Task<object> GetList(uint limint = 1000, IDictionary<string, string> where = null);
     }
 }
 

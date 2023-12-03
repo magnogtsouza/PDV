@@ -6,14 +6,21 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using Microsoft.Maui.ApplicationModel;
 
 namespace NTPreVenda.db.Models
 {
-    internal class REFERENCIAS : DatabaseItem
+    public class Referencia : DatabaseItem
     {
-        public override Task<object> GetList()
+        public Referencia() : base("Referencias") { }
+        public override async Task<object> GetList(uint limint = 1000, IDictionary<string, string> where = null)
         {
-            throw new NotImplementedException();
+            Stopwatch sw = Stopwatch.StartNew();   
+            string exp = await ToListExpando(limint, where);
+            List<Referencia> list = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Referencia>>(exp);
+            sw.Stop();
+            return list;
         }
 
         public override bool Insert()
@@ -21,14 +28,6 @@ namespace NTPreVenda.db.Models
             throw new NotImplementedException();
         }
 
-        [NotMapped]
-        public string ExtensaoColecaoDescricao { get; set; }
-
-        [NotMapped]
-        public string ExtensaoNCMNCM { get; set; }
-
-        [NotMapped]
-        public string ExtensaoCompradorDescricao { get; set; }
 
         public short REF_COLECAO { get; set; }
 
@@ -142,6 +141,6 @@ namespace NTPreVenda.db.Models
         public bool? REF_CONTROLA_LOTE { get; set; }
 
         public short? REF_DIAS_VALIDADE { get; set; }
-
+        public virtual List<MATERIAIS> MATERIAIS { get; set; }
     }
 }

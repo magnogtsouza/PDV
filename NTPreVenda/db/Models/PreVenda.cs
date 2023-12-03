@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 namespace NTPreVenda.db.Models
 {
-    internal class PreVenda : DatabaseItem
+    public class PreVenda : DatabaseItem
     {
         public PreVenda() : base("DAV")
         {
@@ -34,6 +34,7 @@ namespace NTPreVenda.db.Models
         public string DAV_NOME { get; set; }
 
         public DateTime? DAV_DATA { get; set; }
+        public DateTime? DAV_ATUALIZACAO { get; set; }
 
         public byte? DAV_TABELA { get; set; }
 
@@ -59,17 +60,19 @@ namespace NTPreVenda.db.Models
 
         public bool DAV_CONFERIDO { get; set; }
 
+
         [StringLength(8)]
         public string DAV_MATRICULA { get; set; }
 
         public short DAV_PARCELAS { get; set; }
 
         public virtual string NomeVendedor { get; set; }
-        //public string ValorView { get { return DAV_VALOR.ToString("C", VarGlobais.culturaBrasileira); ; } }
+        public virtual bool NaoSalvo { get; set; } = false;
+         
         public string Vendedor { get { return NomeVendedor; } }
-        public override async Task<object> GetList()
+        public override async Task<object> GetList(uint limint = 1000, IDictionary<string, string> where = null)
         {
-            string exp = await ToListExpando(25);
+            string exp = await ToListExpando(limint, where);
             List<PreVenda> list = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PreVenda>>(exp);
             return list;
         }

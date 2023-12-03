@@ -85,10 +85,10 @@ namespace NTPreVenda.db.Models
         public string VEN_CONTA { get; set; }
 
         public byte? VEN_TIPO_CONTA { get; set; }
-
-        public override async Task<object> GetList()
+        public override string ToString() => VEN_APELIDO;
+        public override async Task<object> GetList(uint limint = 1000, IDictionary<string, string> where = null)
         {
-            string exp = await ToListExpando(0);
+            string exp = await ToListExpando(limint, where);
             List<Vendedor> list = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Vendedor>>(exp);
             return list;
         }

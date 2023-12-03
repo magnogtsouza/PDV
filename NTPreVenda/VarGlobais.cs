@@ -14,9 +14,9 @@ namespace NTPreVenda
         public static string localCachePath = System.IO.Path.Combine(FileSystem.Current.CacheDirectory, "cache.bin");
         public static LocalData.DataFile Data = Data ?? new DataFile(localCachePath, "202311232354mágnõç", "nacaoCript");
         private static Models.DeviceInfo _DeviceInfo;
-        public static void RefreshInfo() 
-        { 
-            _DeviceInfo = Models.DeviceInfo.GetDeviceInfo(); 
+        public static void RefreshInfo()
+        {
+            _DeviceInfo = Models.DeviceInfo.GetDeviceInfo();
         }
         public static Models.DeviceInfo DeviceInfo
         {
@@ -30,9 +30,13 @@ namespace NTPreVenda
             }
         }
 
+        //public static CultureInfo culturaBrasileira = new CultureInfo("pt-BR");
 
-       public static CultureInfo culturaBrasileira = new CultureInfo("pt-BR");
+        public static short FilialCodigo { get; set; }
 
-        public static Vendedor[] Vendedores { get;set; }
+        public static Vendedor[] Vendedores { get; set; }
+        public static List<Referencia> Referencias { get; set; }
+        public static List<MATERIAIS> Materiais { get; set; }
+
     }
 }
