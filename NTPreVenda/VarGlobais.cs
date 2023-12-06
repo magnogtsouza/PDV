@@ -37,6 +37,6 @@ namespace NTPreVenda
         public static Vendedor[] Vendedores { get; set; }
         public static List<Referencia> Referencias { get; set; }
         public static List<MATERIAIS> Materiais { get; set; }
-
+        public static List<Colecao> Colecoes { get; set; }
     }
 }

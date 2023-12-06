@@ -16,7 +16,7 @@ namespace NTPreVenda.db.Models
         public Referencia() : base("Referencias") { }
         public override async Task<object> GetList(uint limint = 1000, IDictionary<string, string> where = null)
         {
-            Stopwatch sw = Stopwatch.StartNew();   
+            Stopwatch sw = Stopwatch.StartNew();
             string exp = await ToListExpando(limint, where);
             List<Referencia> list = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Referencia>>(exp);
             sw.Stop();
@@ -29,7 +29,7 @@ namespace NTPreVenda.db.Models
         }
 
 
-        public short REF_COLECAO { get; set; }
+
 
         [Key]
         [Column(Order = 0)]
@@ -38,7 +38,8 @@ namespace NTPreVenda.db.Models
 
         [StringLength(255)]
         public string REF_DESCRICAO { get; set; }
-
+        /*
+        public short REF_COLECAO { get; set; }
         public DateTime? REF_CADASTRO { get; set; }
 
         public short? REF_MATERIA { get; set; }
@@ -141,6 +142,7 @@ namespace NTPreVenda.db.Models
         public bool? REF_CONTROLA_LOTE { get; set; }
 
         public short? REF_DIAS_VALIDADE { get; set; }
+        */
         public virtual List<MATERIAIS> MATERIAIS { get; set; }
     }
 }

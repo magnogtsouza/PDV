@@ -11,19 +11,6 @@ namespace NTPreVenda.db.Models
 {
     public class MATERIAIS :DatabaseItem
     {
-        /*
-        [NotMapped]
-        public string ExtensaoCorDescricao { get; set; }
-
-        [NotMapped]
-        public string ExtensaoCorCodigoExterno { get; set; }
-
-        [NotMapped]
-        public string ExtensaoTamanhoDescricao { get; set; }
-
-        [NotMapped]
-        public double ExtensaoPreco { get; set; }
-        */
         [Key]
         [StringLength(14)]
         public string MAT_CODIGO { get; set; }
@@ -37,22 +24,22 @@ namespace NTPreVenda.db.Models
 
         public short? MAT_COLECAO { get; set; }
 
-        public DateTime? MAT_CADASTRO { get; set; }
+        //public DateTime? MAT_CADASTRO { get; set; }
 
-        public byte? MAT_REDE { get; set; }
+        //public byte? MAT_REDE { get; set; }
 
-        public DateTime? MAT_ATUALIZACAO { get; set; }
+        //public DateTime? MAT_ATUALIZACAO { get; set; }
 
-        public bool? MAT_INATIVO { get; set; }
+        //public bool? MAT_INATIVO { get; set; }
 
-        public short? MAT_COR_SEQ { get; set; }
+        //public short? MAT_COR_SEQ { get; set; }
 
-        public byte? MAT_SITE { get; set; }
+        //public byte? MAT_SITE { get; set; }
 
         [StringLength(14)]
         public string MAT_EAN { get; set; }
 
-        public double? MAT_DESCONTO_MAXIMO { get; set; }
+        //public double? MAT_DESCONTO_MAXIMO { get; set; }
 
         public override async Task<object> GetList(uint limint = 1000, IDictionary<string, string> where = null)
         {

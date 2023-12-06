@@ -98,6 +98,11 @@ namespace NTPreVenda
             await Shell.Current.Navigation.PushAsync(new PrevendaView(SelecTedVendedor, pre), true);
             return;
         }
+
+        private void ContentPage_Loaded(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
