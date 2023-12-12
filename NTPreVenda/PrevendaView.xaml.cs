@@ -42,6 +42,7 @@ public partial class PrevendaView : ContentPage
         }
         else
         {
+            //caso não exista ele cria a nova prevenda
             preVenda = new PreVenda()
             {
                 DAV_VENDEDOR = vendedor.VEN_CODIGO,
