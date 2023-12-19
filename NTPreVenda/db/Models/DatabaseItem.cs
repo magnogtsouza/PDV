@@ -102,26 +102,39 @@ namespace NTPreVenda.db.Models
         internal async Task<string> ToListExpando(uint limit = 100, IDictionary<string, string> where = null)
         {
             string selec = SelectString(limit, where);
-            SqlConnection cnnT = Pool.GetConnectionNot();
-            cnnT.Open();
-            SqlCommand cmd = new SqlCommand(selec, cnnT);
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-            var list = new List<ExpandoObject>();
             PropertyInfo[] F = this.GetType().GetProperties().Where(x => x.CanWrite && !x.GetMethod.IsVirtual).ToArray();
-            while (reader.Read())
+            using (SqlConnection cnnT = Pool.GetConnectionNot())
             {
-                dynamic expando = new ExpandoObject();
-                var expandoDict = expando as IDictionary<string, object>;
-                for (int i = 0; i < F.Length; i++)
+                cnnT.Open();
+                using (SqlCommand cmd = new SqlCommand(selec, cnnT))
                 {
-                    expandoDict.Add(F[i].Name, reader.GetValue(i));
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        var list = new List<ExpandoObject>();
+
+                        while (reader.Read())
+                        {
+                            dynamic expando = new ExpandoObject();
+                            var expandoDict = expando as IDictionary<string, object>;
+                            for (int i = 0; i < F.Length; i++)
+                            {
+                                var ob = reader.GetValue(i);
+                                if (ob is string str)
+                                {
+                                    ob = str.Trim();
+                                }
+                                expandoDict.Add(F[i].Name, ob);
+                            }
+                            list.Add(expando);
+                        }
+                        string result = Newtonsoft.Json.JsonConvert.SerializeObject(list);
+                        return result;
+                    }
                 }
-                list.Add(expando);
             }
-            Pool.CloseConnecton(cnnT);
-            string result = Newtonsoft.Json.JsonConvert.SerializeObject(list);
-            return result;
         }
+
 
 
         public abstract Task<object> GetList(uint limint = 1000, IDictionary<string, string> where = null);

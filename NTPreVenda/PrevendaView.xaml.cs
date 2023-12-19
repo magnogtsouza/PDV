@@ -75,7 +75,9 @@ public partial class PrevendaView : ContentPage
 
         for (int i = 0; i < items.Count; i++)
         {
-            Referencia referencia = VarGlobais.Referencias.Where(x => x.MATERIAIS.Any(x=>x.MAT_CODIGO.Equals(items[i].DAI_PRODUTO))).FirstOrDefault();
+            MATERIAIS mATERIAIS = VarGlobais.Materiais.Where(x=>x.MAT_CODIGO.Equals(items[i].DAI_PRODUTO)).FirstOrDefault();
+
+            Referencia referencia = VarGlobais.Referencias.Where(x => x.REF_REFERENCIA.Equals(mATERIAIS.MAT_REFERENCIA)).FirstOrDefault();
             if (referencia != null)
             {
                 items[i].Referencia = referencia;
